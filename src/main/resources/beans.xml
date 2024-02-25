@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="doctorRepository" class="xmlApproach.DoctorRepository"/>
+
+    <bean id="doctorService" class="xmlApproach.DoctorService">
+        <constructor-arg ref="doctorRepository"/>
+    </bean>
+
+    <bean id="patientService" class="xmlApproach.PatientService">
+        <constructor-arg ref="doctorService"/>
+        <constructor-arg name="firstName" value="Petras"/>
+        <property name="lastName" value="Petraitis"/>
+        <property name="age" value="65"/>
+    </bean>
+</beans>
